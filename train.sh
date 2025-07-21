@@ -30,13 +30,13 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 method_name="splatfacto"
-dataset_dir=$(yq '.processed' "$CONFIG_FILE")
+dataset_dir=$(yq '.processed_path' "$CONFIG_FILE")
 models_dir=$(yq '.model_path' "$CONFIG_FILE")
 experiment_name=default
 
 # Check required fields
 if [ "$dataset_dir" = "null" ] || [ "$dataset_dir" = "" ] || [ "$models_dir" = "null" ] || [ "$models_dir" = "" ]; then
-    echo "Error: Please fill in processed and model_path fields in config.yaml"
+    echo "Error: Please fill in processed_path and model_path fields in config.yaml"
     exit 1
 fi
 

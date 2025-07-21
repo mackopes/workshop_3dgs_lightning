@@ -2,5 +2,5 @@
 # Fill in the paths below for your specific setup
 
 dataset_path: ""
-processed: ""
+processed_path: ""
 model_path: ""

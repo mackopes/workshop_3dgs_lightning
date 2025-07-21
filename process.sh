@@ -28,11 +28,11 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 raw_dataset_dir=$(yq '.dataset_path' "$CONFIG_FILE")
-dataset_dir=$(yq '.processed' "$CONFIG_FILE")
+dataset_dir=$(yq '.processed_path' "$CONFIG_FILE")
 
 # Check required fields
 if [ "$raw_dataset_dir" = "null" ] || [ "$raw_dataset_dir" = "" ] || [ "$dataset_dir" = "null" ] || [ "$dataset_dir" = "" ]; then
-    echo "Error: Please fill in dataset_path and processed fields in config.yaml"
+    echo "Error: Please fill in dataset_path and processed_path fields in config.yaml"
     exit 1
 fi
 
