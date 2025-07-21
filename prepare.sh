@@ -21,9 +21,6 @@ pip install -e .
 
 cd ..
 
-export MAX_JOBS=2
-pip install git+https://github.com/nerfstudio-project/gsplat.git@v1.4.0
-
 git clone --recursive https://github.com/cvg/Hierarchical-Localization/
 cd Hierarchical-Localization/
 python -m pip install -e .
@@ -31,3 +28,6 @@ python -m pip install -e .
 cd ..
 
 pip install pycolmap==3.11.1
+
+export MAX_JOBS=4
+pip install git+https://github.com/nerfstudio-project/gsplat.git
