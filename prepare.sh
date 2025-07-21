@@ -2,6 +2,8 @@ python -m pip install --upgrade pip
 
 sudo apt install ffmpeg colmap yq
 
+pip install "numpy<2.0"
+
 pip install torch==2.1.2+cu118 torchvision==0.16.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
 
 conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
