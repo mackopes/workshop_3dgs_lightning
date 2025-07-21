@@ -14,6 +14,8 @@ normalize_path() {
     echo "${path%/}"
 }
 
+export MAX_JOBS=2
+
 # Check if yq is installed
 if ! command -v yq &> /dev/null; then
     echo "Error: yq is required. Install with: brew install yq (or snap install yq on Linux)"
