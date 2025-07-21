@@ -14,7 +14,7 @@ export TORCH_CUDA_ARCH_LIST="7.5"
 
 pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 
-export MAX_JOBS=2
+export MAX_JOBS=4
 pip install git+https://github.com/nerfstudio-project/gsplat.git@v1.4.0
 
 git clone https://github.com/mackopes/nerfstudio.git
