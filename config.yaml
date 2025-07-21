@@ -1,0 +1,6 @@
+# Configuration file for 3D Gaussian Splatting pipeline
+# Fill in the paths below for your specific setup
+
+dataset_path: ""
+processed: ""
+model_path: ""
