@@ -8,7 +8,7 @@ conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
 
 pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 
-git clone https://github.com/nerfstudio-project/nerfstudio.git
+git clone https://github.com/mackopes/nerfstudio.git
 cd nerfstudio
 pip install --upgrade pip setuptools
 pip install -e .
