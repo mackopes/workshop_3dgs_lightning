@@ -5,21 +5,31 @@ run_command() {
     fi
 }
 
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Function to normalize directory paths (remove trailing slash if present)
+normalize_path() {
+    local path="$1"
+    echo "${path%/}"
+}
+
 # Check if yq is installed
 if ! command -v yq &> /dev/null; then
     echo "Error: yq is required. Install with: brew install yq (or snap install yq on Linux)"
     exit 1
 fi
 
-# Load config
-if [ ! -f "config.yaml" ]; then
-    echo "Error: config.yaml not found!"
+# Load config from script directory
+CONFIG_FILE="${SCRIPT_DIR}/config.yaml"
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "Error: config.yaml not found in script directory: $SCRIPT_DIR"
     exit 1
 fi
 
 method_name="splatfacto"
-dataset_dir=$(yq '.processed' config.yaml)
-models_dir=$(yq '.model_path' config.yaml)
+dataset_dir=$(yq '.processed' "$CONFIG_FILE")
+models_dir=$(yq '.model_path' "$CONFIG_FILE")
 experiment_name=default
 
 # Check required fields
@@ -27,6 +37,10 @@ if [ "$dataset_dir" = "null" ] || [ "$dataset_dir" = "" ] || [ "$models_dir" = "
     echo "Error: Please fill in processed and model_path fields in config.yaml"
     exit 1
 fi
+
+# Normalize paths (remove trailing slashes)
+dataset_dir=$(normalize_path "$dataset_dir")
+models_dir=$(normalize_path "$models_dir")
 
 training_flags="--pipeline.model.sh-degree 0 --viewer.quit-on-train-completion True --pipeline.model.camera-optimizer.mode SO3xR3"
 
