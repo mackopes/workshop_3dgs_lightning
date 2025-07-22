@@ -49,4 +49,4 @@ training_flags="--pipeline.model.sh-degree 0 --viewer.quit-on-train-completion T
 
 run_command ns-train "${method_name}" --data "${dataset_dir}/" --output-dir ${models_dir} --experiment-name "${experiment_name}" --method-name "${method_name}" --timestamp "default" ${training_flags}
 
-run_command ns-export gaussian-splat --load-config "${models_dir}/default/${method_name}/config.yml" --output-dir "${models_dir}/default/${method_name}/default"
+run_command ns-export gaussian-splat --load-config "${models_dir}/default/${method_name}/default/config.yml" --output-dir "${models_dir}/default/${method_name}/default"
